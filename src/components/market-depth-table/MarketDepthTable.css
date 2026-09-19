@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .Table{
     font-size: 16px;
     border: 1px solid red;
@@ -22,7 +27,27 @@
 }
 
 .Table #Table-subHeader th,
-.Table tbody tr td{
+.Table tbody tr td>div{
     padding: 8px;
     font-size: 14px;
+}
+
+.Table .Price>div{
+    display: flex;
+    justify-content: space-between;
+    /* border: inherit fix the price borders */
+}
+
+.Table-quantity{
+    /* padding: 0; */
+    text-align: right;
+}
+
+.Table-quantity div{
+    background-color: blue;
+    height: 100%;
+    /* padding: 9px; */
+    color: white;
+    width: 50%;
+    display: flex;
 }
