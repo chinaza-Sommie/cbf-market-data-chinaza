@@ -16,36 +16,8 @@ export const MarketDepthFeature = () => {
       {/* Remove this placeholder. */}
       {/* <Placeholder /> */}
       {/* Insert the MarketDepth component structure here. */}
-      {/* <MarketDepthTable data={data} /> */}
+      <MarketDepthTable data={data} />
 
-      <table>
-  <thead>
-    <tr>
-      <th rowSpan={2}>#</th>
-      <th colSpan={2}>Bid</th>
-      <th colSpan={2}>Offer</th>
-    </tr>
-    <tr>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {data.map((row, index) => (
-      
-      <tr key={'0'}>
-        <td>{index}</td>
-        <td>{row.bidQuantity}</td>
-        <td>{row.bid}</td>
-        <td>{row.offerQuantity}</td>
-        <td>{row.offer}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
     </>
   )
 }
