@@ -8,19 +8,38 @@ interface MarketTableBodyProp {
   data: MarketDepthRow[];
 }
 export const MarketTableBody = ({data}: MarketTableBodyProp) => {
-  // const[bidPrice, setBidPrice] = useState<number>(0);
-  // const previousBidPrice = useRef<number>(0);
+    // const[bidPrice, setBidPrice] = useState<number>(0);
+    const previousBidPrice = useRef<MarketDepthRow[]>([]);
 
+    useEffect(()=> {
+        previousBidPrice.current = data;
+    }, [data])
 
-  const getMaximumLength = Math.max( ...data.map(row => row.bidQuantity), ...data.map(row => row.offerQuantity));
+    const checkArrowDirection = (currentIndex: number, currentPrice: number, priceName: string) =>{
+        const previousBidPriceData =  previousBidPrice.current[currentIndex];
+        if(!previousBidPriceData){
+            return null;
+        }
+
+        if(priceName.toLocaleLowerCase() === 'bid' && currentPrice >= previousBidPriceData.bid){
+            return true;
+        }
+
+        if(priceName.toLocaleLowerCase() === 'ask' && currentPrice >= previousBidPriceData.offer){
+            return true;
+        }
+        return false;
+    }
+
+    const getMaximumLength = Math.max( ...data.map(row => row.bidQuantity), ...data.map(row => row.offerQuantity));
     
 
-  const getQuantityWidth = (quantity: number) => {
-    if(quantity === 0) {
-      return 0;
+    const getQuantityWidth = (quantity: number) => {
+        if(quantity === 0) {
+            return 0;
+        }
+        return (quantity / getMaximumLength ) * 100;
     }
-    return (quantity / getMaximumLength ) * 100;
-  }
   return (
     <>
         <tbody>
@@ -37,19 +56,26 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
 
                 {/* bid price */}
                 <td className='Price'>
-                  <div>
                     <div>
-                    up
-                  </div>
-                  <div >
-                    {row.bid}
-                  </div>
-                  </div>
+                        <div>
+                           {checkArrowDirection(index, row.bid, "bid") ? 'up': ('down')}
+                        </div>
+                        <div >
+                            {row.bid}
+                        </div>
+                    </div>
                 </td>
 
                 {/* offer price */}
-                <td>
-                  <div> {row.offer} </div>
+                <td className='Price'>
+                    <div>
+                        <div>
+                           {checkArrowDirection(index, row.offer, "bid") ? 'up': ('down')}
+                        </div>
+                        <div >
+                            {row.offer}
+                        </div>
+                    </div>
                 </td>
 
                 {/* offer quantity */}
