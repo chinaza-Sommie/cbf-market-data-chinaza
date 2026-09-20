@@ -3,6 +3,10 @@ import '../placeholder/Placeholder.css';
 import './MarketDepthTable.css';
 import { MarketDepthRow } from '../market-depth/useMarketDepthData';
 import { MarketDepthQuantWidth } from './MarketDepthQuantWidth';
+// import { ArrowUp } from '@vuu-ui/vuu-utils';
+// import ArrowUp from '../../assets/arrowUp.svg'
+import ArrowUp from '../../assets/arrow-up-solid-full.svg';
+import ArrowDown from '../../assets/arrow-down-solid-full.svg';
 
 interface MarketTableBodyProp {
   data: MarketDepthRow[];
@@ -58,7 +62,12 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
                 <td className='Price'>
                     <div>
                         <div>
-                           {checkArrowDirection(index, row.bid, "bid") ? 'up': ('down')}
+                           {checkArrowDirection(index, row.bid, "bid") ? (
+                            // <ArrowUp/>'
+                                <img src={ArrowUp} alt="up" className='Table-arrow-icon'/>
+                           ): (
+                                <img src={ArrowDown} alt="up" className='Table-arrow-icon'/>
+                           )}
                         </div>
                         <div >
                             {row.bid}
@@ -67,10 +76,14 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
                 </td>
 
                 {/* offer price */}
-                <td className='Price'>
+                <td className='Price Price-reverse'>
                     <div>
                         <div>
-                           {checkArrowDirection(index, row.offer, "bid") ? 'up': ('down')}
+                           {checkArrowDirection(index, row.offer, "ask") ? (
+                                <img src={ArrowUp} alt="up" className='Table-arrow-icon'/>
+                           ): (
+                                <img src={ArrowDown} alt="up" className='Table-arrow-icon'/>
+                           )}
                         </div>
                         <div >
                             {row.offer}
