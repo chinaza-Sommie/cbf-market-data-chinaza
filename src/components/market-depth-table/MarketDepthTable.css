@@ -45,6 +45,7 @@
     /* padding: 0; */
     text-align: center;
     display: flex;
+    color: white;
 }
 
 .Table-quantity-blue-reverse-display{
@@ -52,9 +53,8 @@
     justify-content: end;
 }
 
-.Table-quantity>div {
-    /* padding: 9px; */
-    color: white;
+.Table-quantity>div,
+.Price-index{
     display: flex;
     align-items: center;
 }
@@ -66,4 +66,8 @@
 .Table-arrow-icon{
     width: 16px;
     height: 16px;
+}
+
+.Price-index{
+    justify-content: center;
 }

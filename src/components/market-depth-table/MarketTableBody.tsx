@@ -51,7 +51,7 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
               
               <tr key={index} >
                 <td>
-                  <div> {index} </div>
+                  <div className='Price-index'> {index} </div>
                 </td>
 
                 {/* bid quantity */}
