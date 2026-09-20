@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import '../placeholder/Placeholder.css';
 import './MarketDepthTable.css';
 import { MarketDepthRow } from '../market-depth/useMarketDepthData';
+import { MarketTableBody } from './MarketTableBody';
 
 interface MarketDepthTableProp {
   data: MarketDepthRow[];
@@ -16,30 +17,19 @@ export const MarketDepthTable = ({data}: MarketDepthTableProp) => {
           <thead>
             <tr id='Table-mainHeader'>
               <th > </th>
-              <th colSpan={2} style={{border: "1px solid red"}} >Bid</th>
-              <th colSpan={2}>Offer</th>
+              <th colSpan={2} >Bid</th>
+              <th colSpan={2}>Ask</th>
             </tr>
             <tr id='Table-subHeader'>
               <th></th>
               <th>Quantity</th>
               <th>Price</th>
-              <th>Quantity</th>
               <th>Price</th>
+              <th>Quantity</th>
             </tr>
           </thead>
 
-          <tbody>
-            {data.map((row, index) => (
-              
-              <tr key={index}>
-                <td>{index}</td>
-                <td>{row.bidQuantity}</td>
-                <td>{row.bid}</td>
-                <td>{row.offerQuantity}</td>
-                <td>{row.offer}</td>
-              </tr>
-            ))}
-          </tbody>
+          <MarketTableBody data={data} />
         </table>
       </div>
     </div>

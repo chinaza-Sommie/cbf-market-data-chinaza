@@ -1,11 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .Table{
-    font-size: 16px;
-    border: 1px solid red;
-    padding: 5px 0;
+    font-size: 15px;
+    padding-top: 15px;
 }
 
 .Table table{
-    border: 1px solid red;
     width: 35%;
     text-align: center;
 }
@@ -13,16 +16,58 @@
 .Table table,
 .Table td,
 .Table th {
-    border: 2px solid grey;
+    border: 1px solid grey;
     border-collapse: collapse;
 }
 
 .Table #Table-mainHeader th{
-    padding: 13px;
+    padding: 10px;
 }
 
 .Table #Table-subHeader th,
-.Table tbody tr td{
-    padding: 8px;
-    font-size: 14px;
+.Table tbody tr td>div>div{
+    padding: 5px; 
+    font-size: 13px;
+}
+
+.Table tbody tr td>div{
+    height: 30px;
+}
+
+.Table .Price>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: inherit fix the price borders */
+}
+
+.Table-quantity{
+    /* padding: 0; */
+    text-align: center;
+    display: flex;
+    color: white;
+}
+
+.Table-quantity-blue-reverse-display{
+    display: flex;
+    justify-content: end;
+}
+
+.Table-quantity>div,
+.Price-index{
+    display: flex;
+    align-items: center;
+}
+
+.Price-reverse>div{
+    flex-direction: row-reverse;
+}
+
+.Table-arrow-icon{
+    width: 16px;
+    height: 16px;
+}
+
+.Price-index{
+    justify-content: center;
 }
