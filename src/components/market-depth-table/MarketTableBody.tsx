@@ -1,15 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { MarketDepthRow } from '../market-depth/useMarketDepthData';
-import { MarketDepthQuantityBar } from './MarketDepthQuantWidth';
-import ArrowUp from '../../assets/arrow-up-solid-full.svg';
-import ArrowDown from '../../assets/arrow-down-solid-full.svg';
+import { MarketDepthQuantityBar } from './MarketDepthQuantityBar';
 import {MarketDepthPrice} from './MarketDepthPrice';
 
 interface MarketTableBodyProp {
   data: MarketDepthRow[];
 }
 export const MarketTableBody = ({data}: MarketTableBodyProp) => {
-    // const[bidPrice, setBidPrice] = useState<number>(0);
     const previousBidPrice = useRef<MarketDepthRow[]>([]);
 
     useEffect(()=> {
@@ -47,6 +44,7 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
             {data.map((row, index) => (
               
               <tr key={index} >
+                {/* Price Level Index */}
                 <td aria-label={` Price Level Index of ${index}`}>
                   <div className='Price-index'> {index} </div>
                 </td>

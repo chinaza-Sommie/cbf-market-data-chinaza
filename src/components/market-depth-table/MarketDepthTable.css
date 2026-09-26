@@ -39,12 +39,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: inherit fix the price borders */
 }
 
 .Table-quantity{
-    /* padding: 0; */
-    /* text-align: center; */
     display: flex;
     color: white;
 }
