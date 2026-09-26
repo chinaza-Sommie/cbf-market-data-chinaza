@@ -10,10 +10,13 @@ export const MarketDepthPrice = ({price, direction, label }: MarketDepthPricePro
   const arrowDirection = direction === 'up' ? ArrowUp : ArrowDown;
 
   return (
-    <td className={label === "Bid" ? `Price`: `Price Price-reverse`}>
+    <td className={label === "Bid" ? `Price`: `Price Price-reverse`} aria-label={`${label} Price with direction arrow`}>
         <div>
             <div>
-                <img src={arrowDirection} alt={`${label} direction arrow`} className='Table-arrow-icon'/>
+                <img src={arrowDirection} 
+                    alt={`${label} direction arrow`} 
+                    className='Table-arrow-icon' 
+                    aria-label={`${label} direction arrow`}/>
             </div>
 
             <div> {price}</div>

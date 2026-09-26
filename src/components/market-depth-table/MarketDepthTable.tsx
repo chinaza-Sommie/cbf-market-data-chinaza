@@ -12,7 +12,7 @@ export const MarketDepthTable = ({data}: MarketDepthTableProp) => {
     <div className="Placeholder Table" >
       
       <div className="Placeholder-buttonContainer" >
-        <table>
+        <table aria-label="Market depth Table">
           <thead>
             <tr id='Table-mainHeader'>
               <th > </th>

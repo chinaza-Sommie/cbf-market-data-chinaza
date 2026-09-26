@@ -47,7 +47,7 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
             {data.map((row, index) => (
               
               <tr key={index} >
-                <td>
+                <td aria-label={` Price Level Index of ${index}`}>
                   <div className='Price-index'> {index} </div>
                 </td>
 
@@ -55,7 +55,8 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
                 <MarketDepthQuantWidth 
                     widthPercentage={getQuantityWidth(row.bidQuantity)} 
                     quantity={row.bidQuantity} 
-                    bgColor='blue'  
+                    bgColor='blue'
+                    label="Bid"
                 />
                 
 
@@ -74,7 +75,12 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
                  />
 
                 {/* offer quantity */}
-                <MarketDepthQuantWidth widthPercentage={getQuantityWidth(row.offerQuantity)} quantity={row.offerQuantity} bgColor={"red"}/>
+                <MarketDepthQuantWidth 
+                    widthPercentage={getQuantityWidth(row.offerQuantity)} 
+                    quantity={row.offerQuantity} 
+                    bgColor={"red"}
+                    label="Ask"
+                />
                 
               </tr>
             ))}
