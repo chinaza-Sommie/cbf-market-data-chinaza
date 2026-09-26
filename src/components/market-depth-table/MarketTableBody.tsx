@@ -55,7 +55,11 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
                 </td>
 
                 {/* bid quantity */}
-                <MarketDepthQuantWidth widthPercentage={getQuantityWidth(row.bidQuantity)} quantity={row.bidQuantity} bgColor='blue' />
+                <MarketDepthQuantWidth 
+                    widthPercentage={getQuantityWidth(row.bidQuantity)} 
+                    quantity={row.bidQuantity} 
+                    bgColor='blue'  
+                />
                 
 
                 {/* bid price */}
@@ -64,9 +68,9 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
                         <div>
                            {checkArrowDirection(index, row.bid, "bid") ? (
                             // <ArrowUp/>'
-                                <img src={ArrowUp} alt="up" className='Table-arrow-icon'/>
+                                <img src={ArrowUp} alt="Price increased Arrow" className='Table-arrow-icon'/>
                            ): (
-                                <img src={ArrowDown} alt="up" className='Table-arrow-icon'/>
+                                <img src={ArrowDown} alt="Price decreased Arrow" className='Table-arrow-icon'/>
                            )}
                         </div>
                         <div >
@@ -80,9 +84,9 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
                     <div>
                         <div>
                            {checkArrowDirection(index, row.offer, "ask") ? (
-                                <img src={ArrowUp} alt="up" className='Table-arrow-icon'/>
+                                <img src={ArrowUp} alt="Price increased Arrow" className='Table-arrow-icon'/>
                            ): (
-                                <img src={ArrowDown} alt="up" className='Table-arrow-icon'/>
+                                <img src={ArrowDown} alt="Price decreased Arrow" className='Table-arrow-icon'/>
                            )}
                         </div>
                         <div >

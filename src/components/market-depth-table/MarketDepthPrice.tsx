@@ -1,11 +1,11 @@
 
 
-interface MarketDepthQuantWidthProp {
+interface MarketDepthPriceProp {
   widthPercentage: number;
   quantity: number;
   bgColor: string;
 }
-export const MarketDepthQuantWidth = ({widthPercentage, quantity, bgColor }: MarketDepthQuantWidthProp) => {
+export const MarketDepthPrice = ({widthPercentage, quantity, bgColor }: MarketDepthPriceProp) => {
   
   return (
     <td style={{textAlign:'center',}}>
