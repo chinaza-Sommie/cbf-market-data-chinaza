@@ -50,11 +50,16 @@
 
 .Table-quantity-blue-reverse-display{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
-.Table-quantity>div{
+
+.Table-quantity-blue-reverse-display > div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     text-align: right;
 }
+
 .Table-quantity>div,
 .Price-index{
     display: flex;
