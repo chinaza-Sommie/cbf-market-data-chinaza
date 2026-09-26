@@ -1,5 +1,4 @@
 import { MarketDepthTable } from '../market-depth-table/MarketDepthTable';
-import { Placeholder } from '../placeholder/Placeholder';
 import { useMarketDepthData } from './useMarketDepthData';
 
 /**

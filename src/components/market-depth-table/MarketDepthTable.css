@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .Table{
     font-size: 15px;
     padding-top: 15px;
@@ -38,19 +39,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: inherit fix the price borders */
 }
 
 .Table-quantity{
-    /* padding: 0; */
-    text-align: center;
     display: flex;
     color: white;
 }
 
 .Table-quantity-blue-reverse-display{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+}
+
+.Table-quantity-blue-reverse-display > div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
 }
 
 .Table-quantity>div,

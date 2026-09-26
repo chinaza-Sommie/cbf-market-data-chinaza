@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
 import '../placeholder/Placeholder.css';
 import './MarketDepthTable.css';
 import { MarketDepthRow } from '../market-depth/useMarketDepthData';
@@ -13,7 +12,7 @@ export const MarketDepthTable = ({data}: MarketDepthTableProp) => {
     <div className="Placeholder Table" >
       
       <div className="Placeholder-buttonContainer" >
-        <table>
+        <table aria-label="Market depth Table">
           <thead>
             <tr id='Table-mainHeader'>
               <th > </th>

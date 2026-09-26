@@ -1,18 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
-import '../placeholder/Placeholder.css';
-import './MarketDepthTable.css';
+import { useEffect, useRef, useState } from 'react';
 import { MarketDepthRow } from '../market-depth/useMarketDepthData';
-import { MarketDepthQuantWidth } from './MarketDepthQuantWidth';
-// import { ArrowUp } from '@vuu-ui/vuu-utils';
-// import ArrowUp from '../../assets/arrowUp.svg'
-import ArrowUp from '../../assets/arrow-up-solid-full.svg';
-import ArrowDown from '../../assets/arrow-down-solid-full.svg';
+import { MarketDepthQuantityBar } from './MarketDepthQuantityBar';
+import {MarketDepthPrice} from './MarketDepthPrice';
 
 interface MarketTableBodyProp {
   data: MarketDepthRow[];
 }
 export const MarketTableBody = ({data}: MarketTableBodyProp) => {
-    // const[bidPrice, setBidPrice] = useState<number>(0);
     const previousBidPrice = useRef<MarketDepthRow[]>([]);
 
     useEffect(()=> {
@@ -50,49 +44,41 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
             {data.map((row, index) => (
               
               <tr key={index} >
-                <td>
+                {/* Price Level Index */}
+                <td aria-label={` Price Level Index of ${index}`}>
                   <div className='Price-index'> {index} </div>
                 </td>
 
                 {/* bid quantity */}
-                <MarketDepthQuantWidth widthPercentage={getQuantityWidth(row.bidQuantity)} quantity={row.bidQuantity} bgColor='blue' />
+                <MarketDepthQuantityBar 
+                    widthPercentage={getQuantityWidth(row.bidQuantity)} 
+                    quantity={row.bidQuantity} 
+                    bgColor='blue'
+                    label="Bid"
+                />
                 
 
                 {/* bid price */}
-                <td className='Price'>
-                    <div>
-                        <div>
-                           {checkArrowDirection(index, row.bid, "bid") ? (
-                            // <ArrowUp/>'
-                                <img src={ArrowUp} alt="up" className='Table-arrow-icon'/>
-                           ): (
-                                <img src={ArrowDown} alt="up" className='Table-arrow-icon'/>
-                           )}
-                        </div>
-                        <div >
-                            {row.bid}
-                        </div>
-                    </div>
-                </td>
+                <MarketDepthPrice 
+                    price={row.bid} 
+                    direction={checkArrowDirection(index, row.bid, "bid")? "up" : "down"} 
+                    label= "Bid"
+                />
 
-                {/* offer price */}
-                <td className='Price Price-reverse'>
-                    <div>
-                        <div>
-                           {checkArrowDirection(index, row.offer, "ask") ? (
-                                <img src={ArrowUp} alt="up" className='Table-arrow-icon'/>
-                           ): (
-                                <img src={ArrowDown} alt="up" className='Table-arrow-icon'/>
-                           )}
-                        </div>
-                        <div >
-                            {row.offer}
-                        </div>
-                    </div>
-                </td>
+                {/* offer price */}             
+                <MarketDepthPrice 
+                    price={row.offer} 
+                    direction={checkArrowDirection(index, row.offer, "ask") ? "up" : "down"} 
+                    label="Ask"
+                 />
 
                 {/* offer quantity */}
-                <MarketDepthQuantWidth widthPercentage={getQuantityWidth(row.offerQuantity)} quantity={row.offerQuantity} bgColor={"red"}/>
+                <MarketDepthQuantityBar 
+                    widthPercentage={getQuantityWidth(row.offerQuantity)} 
+                    quantity={row.offerQuantity} 
+                    bgColor={"red"}
+                    label="Ask"
+                />
                 
               </tr>
             ))}
