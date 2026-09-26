@@ -1,18 +1,22 @@
-
+import ArrowUp from '../../assets/arrow-up-solid-full.svg';
+import ArrowDown from '../../assets/arrow-down-solid-full.svg';
 
 interface MarketDepthPriceProp {
-  widthPercentage: number;
-  quantity: number;
-  bgColor: string;
+  price: number;
+  direction: 'up' | 'down';
+  label: "Bid" | "Ask";
 }
-export const MarketDepthPrice = ({widthPercentage, quantity, bgColor }: MarketDepthPriceProp) => {
-  
+export const MarketDepthPrice = ({price, direction, label }: MarketDepthPriceProp) => {
+  const arrowDirection = direction === 'up' ? ArrowUp : ArrowDown;
+
   return (
-    <td style={{textAlign:'center',}}>
-        <div className={bgColor === 'blue' ? `Table-quantity-blue-reverse-display Table-quantity` : `Table-quantity`}>
-            <div style={{width: `${widthPercentage}%`, backgroundColor: `${bgColor}` , }}>
-                {quantity}
+    <td className='Price'>
+        <div>
+            <div>
+                <img src={arrowDirection} alt={`${label} direction arrow`} className='Table-arrow-icon'/>
             </div>
+
+            <div> {price}</div>
         </div>
     </td>
   )
