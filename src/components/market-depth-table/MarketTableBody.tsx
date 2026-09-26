@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { MarketDepthRow } from '../market-depth/useMarketDepthData';
-import { MarketDepthQuantWidth } from './MarketDepthQuantWidth';
+import { MarketDepthQuantityBar } from './MarketDepthQuantWidth';
 import ArrowUp from '../../assets/arrow-up-solid-full.svg';
 import ArrowDown from '../../assets/arrow-down-solid-full.svg';
 import {MarketDepthPrice} from './MarketDepthPrice';
@@ -52,7 +52,7 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
                 </td>
 
                 {/* bid quantity */}
-                <MarketDepthQuantWidth 
+                <MarketDepthQuantityBar 
                     widthPercentage={getQuantityWidth(row.bidQuantity)} 
                     quantity={row.bidQuantity} 
                     bgColor='blue'
@@ -75,7 +75,7 @@ export const MarketTableBody = ({data}: MarketTableBodyProp) => {
                  />
 
                 {/* offer quantity */}
-                <MarketDepthQuantWidth 
+                <MarketDepthQuantityBar 
                     widthPercentage={getQuantityWidth(row.offerQuantity)} 
                     quantity={row.offerQuantity} 
                     bgColor={"red"}

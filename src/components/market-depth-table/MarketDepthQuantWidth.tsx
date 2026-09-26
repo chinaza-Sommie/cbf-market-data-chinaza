@@ -1,12 +1,12 @@
 
 
-interface MarketDepthQuantWidthProp {
+interface MarketDepthQuantityBarProp {
   widthPercentage: number;
   quantity: number;
   bgColor: string;
   label?: "Bid" | "Ask"
 }
-export const MarketDepthQuantWidth = ({widthPercentage, quantity, bgColor, label }: MarketDepthQuantWidthProp) => {
+export const MarketDepthQuantityBar= ({widthPercentage, quantity, bgColor, label }: MarketDepthQuantityBarProp) => {
   
   return (
     <td style={{textAlign:'center'}} aria-label={`${label} Quantity`}>
