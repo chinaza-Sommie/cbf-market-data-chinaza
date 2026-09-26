@@ -1,10 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
-import '../placeholder/Placeholder.css';
-import './MarketDepthTable.css';
+import { useEffect, useRef, useState } from 'react';
 import { MarketDepthRow } from '../market-depth/useMarketDepthData';
 import { MarketDepthQuantWidth } from './MarketDepthQuantWidth';
-// import { ArrowUp } from '@vuu-ui/vuu-utils';
-// import ArrowUp from '../../assets/arrowUp.svg'
 import ArrowUp from '../../assets/arrow-up-solid-full.svg';
 import ArrowDown from '../../assets/arrow-down-solid-full.svg';
 

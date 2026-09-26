@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
 import '../placeholder/Placeholder.css';
 import './MarketDepthTable.css';
 import { MarketDepthRow } from '../market-depth/useMarketDepthData';
